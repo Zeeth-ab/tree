@@ -1,0 +1,3 @@
+displayName = tree mod
+author = Zeeth
+version = 0.1
