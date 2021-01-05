@@ -16,7 +16,7 @@ namespace tree.NPCs
 		{
 			npc.CloneDefaults(NPCID.GoblinPeon);
 			aiType = NPCID.GoblinScout; //better than doing zombies due to night time - day time ai
-			npc.lifeMax = 100;
+			npc.lifeMax = 2000;
 			npc.damage = 24;
 			npc.width = 196;
 			npc.height = 228;
