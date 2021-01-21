@@ -15,7 +15,7 @@ namespace tree.Items
 
 		public override void SetDefaults() 
 		{
-			item.damage = 100;
+			item.damage = 25;
 			item.magic = true;
 			item.width = 64;
 			item.height = 32;

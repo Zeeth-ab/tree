@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,17 +18,42 @@ namespace tree.NPCs
 			npc.CloneDefaults(NPCID.GoblinPeon);
 			aiType = NPCID.GoblinScout; //better than doing zombies due to night time - day time ai
 			npc.lifeMax = 2000;
-			npc.damage = 24;
+			npc.damage = 200;
 			npc.width = 196;
 			npc.height = 228;
 			npc.defense = 0;
+			npc.value = 100000;
 			animationType = 0;
-			Main.npcFrameCount[npc.type] = 1;
+			Main.npcFrameCount[npc.type] = 10;
 			//banner = npc.type;
 			//bannerItem = ItemType<ExampleItemBanner>();
 		}
+		float ai1 = 0;
+		public override void FindFrame(int frameHeight)
+		{
+			int frame = frameHeight;
+			ai1 += 1f * (0.5f + 0.5f * Math.Abs(npc.velocity.X));
+			if (ai1 >= 5f)
+			{
+				ai1 -= 5f;
+				npc.frame.Y += frame;
+				if (npc.frame.Y >= 10 * frame)
+				{
+					npc.frame.Y = 0;
+				}
+			}
+		}
+		float ai2 = 0;
 		public override void AI()
 		{
+			npc.spriteDirection = npc.direction;
+			Player player = Main.player[npc.target];
+			ai2++;
+			if(ai2 >= 900)
+            {
+				NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("BabyBear"));
+				ai2 -= 180;
+            }
 			npc.TargetClosest(true); //helps override running away during day time
 		}
 		public override void HitEffect(int hitDirection, double damage)
@@ -43,6 +69,7 @@ namespace tree.NPCs
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TheLoraxGore3"), 1f);
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TheLoraxGore4"), 1f);
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TheLoraxGore5"), 1f);
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TheLoraxGore6"), 1f);
 			}
 			else
 			{

@@ -14,14 +14,14 @@ namespace tree.Items
 
 		public override void SetDefaults() 
 		{
-			item.damage = 6969;
+			item.damage = 50;
 			item.melee = true;
 			item.width = 128;
 			item.height = 128;
 			item.useTime = 15;
 			item.useAnimation = 15;
 			item.useStyle = 1;
-			item.knockBack = 700;
+			item.knockBack = 50;
 			item.value = Item.sellPrice(1, 0, 0, 0);
 			item.rare = ItemRarityID.LightPurple;
 			item.UseSound = SoundID.Item1;
