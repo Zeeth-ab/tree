@@ -38,14 +38,14 @@ namespace tree.Items
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "TreeLaser", 1);
-			recipe.AddTile(TileID.WorkBenches);
+			recipe.AddIngredient(null, "BruhHand", 1);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-			float Yoffset = -40;
+			float Yoffset = -48;
 			if(speedX < 0)
             {
 				Yoffset *= -1;
