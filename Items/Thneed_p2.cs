@@ -13,12 +13,12 @@ namespace tree.Items
 			item.height = 62;
             item.value = Item.sellPrice(5, 0, 40, 1);
 			item.rare = 1;
-			item.defense = 2;
+			item.defense = 13;
 		}
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Thneed Part 2");
-			Tooltip.SetDefault("");
+			Tooltip.SetDefault("Hey bro nice cock!\nIncreases movement speed by 50%, removes fall damage");
 		}
 		public override bool IsArmorSet(Item head, Item body, Item legs)
         {
@@ -26,7 +26,8 @@ namespace tree.Items
         }
 		public override void UpdateEquip(Player player)
 		{
-
+			player.moveSpeed += 0.50f;
+			player.noFallDmg = true;
 		}
 		public override void AddRecipes()
 		{
