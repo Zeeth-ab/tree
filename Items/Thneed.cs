@@ -27,8 +27,9 @@ namespace tree.Items
 		}
 		public override void UpdateArmorSet(Player player)
 		{
-			
-			player.setBonus = "Lord of the Trees: upon taking damage you envoke the wrath of 2 trees that deal damage and knock back enemies";
+			TreePlayer treePlayer = player.GetModPlayer<TreePlayer>();
+			treePlayer.treesOnHit += 20;
+			player.setBonus = "Lord of the Trees: upon taking damage you summon a torrent of trees from the sky";
 			
 		}
 		
