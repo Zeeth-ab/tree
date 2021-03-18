@@ -57,5 +57,20 @@ namespace tree.Items
 			}
 			base.MeleeEffects(player, hitbox);
 		}
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.Wood, 100);
+			recipe.AddIngredient(ItemID.TissueSample, 10);
+			recipe.AddTile(TileID.Hellforge);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+			recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.Wood, 100);
+			recipe.AddIngredient(ItemID.ShadowScale, 10);
+			recipe.AddTile(TileID.Hellforge);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
 	}
 }

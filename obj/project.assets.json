@@ -31,19 +31,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Christian\\.nuget\\packages\\": {}
+    "C:\\Users\\Owner\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Christian\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\tree\\tree.csproj",
+      "projectUniqueName": "C:\\Users\\Owner\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\tree\\tree.csproj",
       "projectName": "tree",
-      "projectPath": "C:\\Users\\Christian\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\tree\\tree.csproj",
-      "packagesPath": "C:\\Users\\Christian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Christian\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\tree\\obj\\",
+      "projectPath": "C:\\Users\\Owner\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\tree\\tree.csproj",
+      "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Owner\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\tree\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Christian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -74,7 +74,7 @@
             "version": "[0.1.*, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }

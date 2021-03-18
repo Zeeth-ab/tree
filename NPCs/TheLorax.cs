@@ -110,7 +110,7 @@ namespace tree.NPCs
 		{
 			Player player = spawnInfo.player;
 			bool ZoneForest = !player.ZoneDesert && !player.ZoneCorrupt && !player.ZoneDungeon && !player.ZoneDungeon && !player.ZoneHoly && !player.ZoneMeteor && !player.ZoneJungle && !player.ZoneSnow && !player.ZoneCrimson && !player.ZoneGlowshroom && !player.ZoneUndergroundDesert && (player.ZoneDirtLayerHeight || player.ZoneOverworldHeight) && !player.ZoneBeach;
-			return ZoneForest ? 1f : 0; //0.1f spawn chance while in the snow biome, 0 spawn chance while not
+			return ZoneForest ? 0f : 0; //0.1f spawn chance while in the snow biome, 0 spawn chance while not
 		}
 		
         public override void BossLoot(ref string name, ref int potionType)

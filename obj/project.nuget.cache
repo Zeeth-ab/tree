@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "OvlGrtXe+e3gf95fQGOTruyvEv9O/j+dvDOXktRKml/fdlKtO2CiFywE1eIAM6bFUF9cEF2tT9hExE7c8IPPrw==",
+  "dgSpecHash": "AoNvsdGF8LtwokStryDBpxRHDbWUN32QB0zyPm8ox66qZ4KGhXt8NPdjC8syvMYIAfpRqMyTWDkTGU8G4XlL0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Christian\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\tree\\tree.csproj",
+  "projectFilePath": "C:\\Users\\Owner\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\tree\\tree.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Christian\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
+    "C:\\Users\\Owner\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
   ],
   "logs": []
 }

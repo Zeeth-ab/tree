@@ -32,14 +32,7 @@ namespace tree.Items
 			item.useAmmo = AmmoID.Arrow;
 		}
 
-		public override void AddRecipes() 
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.DirtBlock, 10);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
+		
 
         public override bool ConsumeAmmo(Player player)
         {

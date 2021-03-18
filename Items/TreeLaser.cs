@@ -37,7 +37,7 @@ namespace tree.Items
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.Acorn, 990);
+			recipe.AddIngredient(ItemID.Acorn, 99);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
