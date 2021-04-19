@@ -76,7 +76,7 @@ namespace tree.NPCs
 			npc.spriteDirection = npc.direction;
 			Player player = Main.player[npc.target];
 			ai2++;
-			if(ai2 >= 900)
+			if(ai2 >= 540)
             {
 				Vector2 distance = npc.Center - player.Center;
 				distance = distance.SafeNormalize(Vector2.Zero);
@@ -92,10 +92,10 @@ namespace tree.NPCs
                     {
 						Vector2 velo = distance;
 						Vector2 ShootSpeed = new Vector2(velo.X + Main.rand.Next(-3, 4), velo.Y + Main.rand.Next(-3, 4)).RotatedBy(MathHelper.ToRadians(Main.rand.Next(-8, 9)));
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, ShootSpeed.X, ShootSpeed.Y, mod.ProjectileType("BabyBearHead"), damage2, 2f, Main.myPlayer);
+						Projectile.NewProjectile(npc.Center.X, npc.position.Y + 50, ShootSpeed.X, ShootSpeed.Y, mod.ProjectileType("BabyBearHead"), damage2, 2f, Main.myPlayer);
 					}
 				}
-				Main.PlaySound(2, npc.Center, 34);
+				Main.PlaySound(15, (int)(npc.Center.X), (int)(npc.Center.Y), 0, 1.25f);
 				ai2 -= 180;
 			}
 			npc.TargetClosest(true); //helps override running away during day time
