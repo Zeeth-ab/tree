@@ -24,7 +24,7 @@ namespace tree.NPCs
 			npc.defense = 0;
 			npc.value = 100000;
 			animationType = 0;
-			Main.npcFrameCount[npc.type] = 1;
+			Main.npcFrameCount[npc.type] = 6;
 			npc.boss = true;
 			bossBag = mod.ItemType("LoraxTreasureBag");
 			//banner = npc.type;
@@ -38,7 +38,6 @@ namespace tree.NPCs
 		}
 		public override void FindFrame(int frameHeight)
 		{
-			return;
 			int frame = frameHeight;
 			Player player = Main.player[npc.target];
 			ai1 += 1f * (0.5f + 0.5f * Math.Abs(npc.velocity.X));
@@ -46,29 +45,11 @@ namespace tree.NPCs
 			{
 				ai1 -= 5f;
 				npc.frame.Y += frame;
-				if (npc.frame.Y >= 10 * frame)
+				if (npc.frame.Y >= 6 * frame)
 				{
 					npc.frame.Y = 0;
 				}
-				if(npc.frame.Y == 8*frame)
-                {
-					Vector2 Center = npc.Center + new Vector2(-22 * npc.spriteDirection, -78);
-					for (int i = 0; i < 2; i++)
-                    {
-						if (i == 1) Center = npc.Center + new Vector2(-48 * npc.spriteDirection, -70);
-						Vector2 direction = Center - player.Center;
-						direction = direction.SafeNormalize(new Vector2(1, 0)) * -6;
-						int damage = npc.damage / 4;
-						if (Main.expertMode)
-						{
-							damage = (int)(damage / Main.expertDamage);
-						}
-						if (Main.netMode != NetmodeID.MultiplayerClient)
-							Projectile.NewProjectile(Center.X, Center.Y, direction.X, direction.Y, ProjectileID.DeathLaser, damage, 69, Main.myPlayer);
-					}
-				}
 			}
-			if (npc.frame.Y >= 7 * frame && npc.frame.Y <= 9 * frame) npc.velocity *= 0.1f;
 		}
 		float ai2 = 0;
 		public override void AI()

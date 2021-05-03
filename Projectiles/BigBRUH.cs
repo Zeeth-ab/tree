@@ -19,7 +19,7 @@ namespace tree.Projectiles
 			projectile.timeLeft = 4000;
 			projectile.width = 194;
 			projectile.height = 108;
-			projectile.penetrate = 1;
+			projectile.penetrate = 10;
 			projectile.friendly = true;
 		}
 		Color color = Color.White;
@@ -31,6 +31,10 @@ namespace tree.Projectiles
 				runOnce = true;
 				color = new Color(Main.rand.Next(256), Main.rand.Next(256), Main.rand.Next(256));
             }
+		}
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			target.immune[projectile.owner] = 0;
 		}
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
