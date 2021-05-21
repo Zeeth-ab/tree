@@ -23,18 +23,40 @@ namespace tree.Projectiles
 			projectile.penetrate = -1;
 			projectile.friendly = false;
 		}
-		
-		public override void AI()
+        public override bool? CanHitNPC(NPC target)
+        {
+			float Distance = Vector2.Distance(projectile.Center, target.Center);
+			return Distance < 320 && projectile.timeLeft < 3;
+        }
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+        {
+            return true;
+        }
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+			if (projectile.timeLeft > 3) projectile.timeLeft = 3;
+            return false;
+        }
+        public override void AI()
 		{
 			
 		}
         public override void Kill(int timeLeft)
         {
-			int explosionRadius = 50;
-			int minTileX = (int)(projectile.position.X / 16f - (float)explosionRadius);
-			int maxTileX = (int)(projectile.position.X / 16f + (float)explosionRadius);
-			int minTileY = (int)(projectile.position.Y / 16f - (float)explosionRadius);
-			int maxTileY = (int)(projectile.position.Y / 16f + (float)explosionRadius);
+			for (int i = 0; i < 1000; i++)
+			{
+				Vector2 circular = new Vector2(Main.rand.Next(1, 30), 0).RotatedBy(Main.rand.NextFloat(6.28f));
+				Dust dust = Dust.NewDustDirect(projectile.Center, 0, 0, 6);
+				dust.scale += 3;
+				dust.velocity *= 3;
+				dust.velocity += circular;
+				dust.noGravity = true;
+			}
+			int explosionRadius = 20;
+			int minTileX = (int)(projectile.Center.X / 16f - (float)explosionRadius);
+			int maxTileX = (int)(projectile.Center.X / 16f + (float)explosionRadius);
+			int minTileY = (int)(projectile.Center.Y / 16f - (float)explosionRadius);
+			int maxTileY = (int)(projectile.Center.Y / 16f + (float)explosionRadius);
 			if (minTileX < 0)
 			{
 				minTileX = 0;
@@ -56,8 +78,8 @@ namespace tree.Projectiles
 			{
 				for (int y = minTileY; y <= maxTileY; y++)
 				{
-					float diffX = Math.Abs((float)x - projectile.position.X / 16f);
-					float diffY = Math.Abs((float)y - projectile.position.Y / 16f);
+					float diffX = Math.Abs((float)x - projectile.Center.X / 16f);
+					float diffY = Math.Abs((float)y - projectile.Center.Y / 16f);
 					double distance = Math.Sqrt((double)(diffX * diffX + diffY * diffY));
 					if (distance < (double)explosionRadius && Main.tile[x, y] != null && Main.tile[x, y].wall == 0)
 					{
@@ -70,8 +92,8 @@ namespace tree.Projectiles
 			{
 				for (int j = minTileY; j <= maxTileY; j++)
 				{
-					float diffX = Math.Abs((float)i - projectile.position.X / 16f);
-					float diffY = Math.Abs((float)j - projectile.position.Y / 16f);
+					float diffX = Math.Abs((float)i - projectile.Center.X / 16f);
+					float diffY = Math.Abs((float)j - projectile.Center.Y / 16f);
 					double distanceToTile = Math.Sqrt((double)(diffX * diffX + diffY * diffY));
 					if (distanceToTile < (double)explosionRadius)
 					{
@@ -93,7 +115,7 @@ namespace tree.Projectiles
 							}
 							if (canKillTile)
 							{
-								int dust = Dust.NewDust(new Vector2(i * 16, j * 16), 16, 16, 6);
+								
 								WorldGen.KillTile(i, j, false, false, false);
 								if (!Main.tile[i, j].active() && Main.netMode != 0)
 								{
